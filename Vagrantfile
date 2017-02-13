@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version ">= 1.8.1"
+Vagrant.require_version("= 1.8.1")
 VAGRANTFILE_API_VERSION = "2"
 $vm_memory = 1024
 $vm_cpus = `#{RbConfig::CONFIG['host_os'] =~ /darwin/ ? 'sysctl -n hw.ncpu' : 'nproc'}`.chomp
