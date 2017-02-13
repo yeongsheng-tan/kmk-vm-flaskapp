@@ -12,9 +12,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.vm.box = "centos/7"
   # config.vm.box = "edrw/centos7-64"
-  config.vm.hostname = "kmk-flaskapp-vm"
-  config.vm.network "forwarded_port", guest: 80, host: 80, adapter: 1
-  config.vm.network "private_network", ip: "172.28.128.100", adapter: 2
+  config.landrush.enabled = true
+  config.vm.hostname = "devops.kmklabs.dev"
+  config.landrush.tld = "kmklabs.dev"
+  config.landrush.host "devops.kmklabs.dev", "10.10.10.20"
+  config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: true, adapter: 1
+  config.vm.network "private_network", ip: "10.10.10.20", adapter: 2
 
   # Provider-specific configuration so you can fine-tune various
   config.vm.provider "virtualbox" do |vb|
