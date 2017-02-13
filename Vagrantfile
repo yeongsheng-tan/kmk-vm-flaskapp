@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos/7"
   # config.vm.box = "edrw/centos7-64"
   config.vm.hostname = "kmk-flaskapp-vm"
-  config.vm.network "forwarded_port", guest: 80, host: 8080, adapter: 1
+  config.vm.network "forwarded_port", guest: 80, host: 80, adapter: 1
   config.vm.network "private_network", ip: "172.28.128.100", adapter: 2
 
   # Provider-specific configuration so you can fine-tune various
