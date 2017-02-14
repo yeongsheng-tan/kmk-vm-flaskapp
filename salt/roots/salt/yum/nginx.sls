@@ -1,6 +1,6 @@
-nginx-yum-repo:
+nginx:
   pkgrepo.managed:
     - humanname: nginx repo
     - baseurl: http://nginx.org/packages/centos/$releasever/$basearch/
     - gpgcheck: 0
-    - enabled: 1
+    - disabled: 0
