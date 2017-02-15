@@ -1,0 +1,3 @@
+base:
+  '*':
+    - kmk_app
