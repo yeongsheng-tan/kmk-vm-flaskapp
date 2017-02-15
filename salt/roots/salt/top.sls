@@ -1,5 +1,0 @@
-base:
-  '*':
-    - git
-    - flaskapp
-    - nginx
