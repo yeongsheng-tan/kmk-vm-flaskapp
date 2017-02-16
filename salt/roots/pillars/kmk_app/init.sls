@@ -3,6 +3,8 @@ kmk_app:
   base_dir: /webapps
   base_app_dir: /webapps/kmk
   base_venv_dir: /webapps/.virtualenvs/kmk_app
+  app_module: app
+  app_callable: app
   git_url: https://github.com/KMK-ONLINE/devops-coding-challenge.git 
   git_branch: master
   git_hash: c1de414e76517df1cb2ad0499bd0e9cb5310b8d1 
@@ -10,3 +12,13 @@ kmk_app:
   posix_group: kmk
   posix_uid: 501
   posix_gid: 501
+  uwsgi_ini_file: /webapps/kmk/uwsgi.ini
+  uwsgi_run_dir: /run/kmk/
+  uwsgi_uid: kmk
+  uwsgi_gid: nginx
+  uwsgi_is_master: true
+  uwsgi_num_processes: 4
+  uwsgi_socket_file: /run/kmk/uwsgi.sock
+  uwsgi_chmod_socket: 660
+  uwsgi_is_die_on_term: true
+  uwsgi_is_vacuum: true

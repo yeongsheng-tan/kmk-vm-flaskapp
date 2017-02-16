@@ -8,10 +8,19 @@ nginx:
     - skip_verify: True
     - skip_suggestions: True
     - require_in:
-        - pkg: python2-build-deps
-        - pip: uwsgi
-        - file: uwsgi-ini
-        - service: nginx
+        - file: /usr/lib/systemd/system/nginx.service
 
   service.running:
     - name: nginx
+
+/usr/lib/systemd/system/nginx.service:
+  file.managed:
+    - source: salt://nginx/templates/nginx.service
+    - require_in:
+        - service: nginx
+
+/etc/nginx/nginx.conf:
+  file.managed:
+    - source: salt://nginx/templates/nginx.conf
+    - require_in:
+        - service: nginx

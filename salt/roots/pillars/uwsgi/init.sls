@@ -1,14 +1,9 @@
 uwsgi:
-  ini_file: /webapps/kmk/uwsgi.ini
-  module: app
-  callable: app
+  systemd_unit_file: /etc/systemd/system/kmk-uwsgi.service
+  multi_user_system_service_file: /etc/systemd/system/multi-user.target.wants/kmk-uwsgi.service
   uid: kmk
   gid: nginx
-  num_processes: 4
-  venv: /webapps/.virtualenvs/kmk_app
-  socket_file: /tmp/kmk_app.sock
-  chmod_socket: 660
-  is_die_on_term: true
-  is_master: true
-  is_vacuum: true
-  is_vhost: true
+  app_root: /webapps/kmk
+  venv_bin_dir: /webapps/.virtualenvs/kmk_app/bin
+  uwsgi_bin_path: "PATH=/webapps/.virtualenvs/kmk_app/bin"
+  ini_file: /webapps/kmk/uwsgi.ini

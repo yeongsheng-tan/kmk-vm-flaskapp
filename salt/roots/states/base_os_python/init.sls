@@ -3,15 +3,15 @@ yum-update-all:
     - name: yum clean all && yum update -y
     - cwd: /
     - require_in:
-        - pkg: yum-plugin-versionlock
         - user: kmk-app-posix-user
+        # - pkg: yum-plugin-versionlock
 
-yum-plugin-versionlock:
-  pkg.installed:
-    - normalize: True
-    - refresh: True
-    - skip_verify: True
-    - skip_suggestions: True
+# yum-plugin-versionlock:
+#   pkg.installed:
+#     - normalize: True
+#     - refresh: True
+#     - skip_verify: True
+#     - skip_suggestions: True
           
 kmk-app-posix-user:
   user.present:
@@ -42,12 +42,10 @@ python2-build-deps:
         - gcc
         - python-devel
         - python2-pip
-        - uwsgi
-        - uwsgi-plugin-python
-    - require:
-        - pkg: yum-plugin-versionlock
     - require_in:
         - pip: virtualenvwrapper
+    # - require:
+    #     - pkg: yum-plugin-versionlock
 
 virtualenvwrapper:
   pip.installed:
@@ -68,5 +66,5 @@ base_dir:
     - user: {{ pillar['kmk_app']['posix_user'] }}
     - group: {{ pillar['kmk_app']['posix_group'] }}
     - require_in:
-        - file: venv-directory
+        - file: venv-dir
         - git: kmk-flaskapp-git-clone

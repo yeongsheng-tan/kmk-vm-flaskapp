@@ -1,4 +1,4 @@
-venv-directory:
+venv-dir:
   file.directory:
     - name: {{ pillar['kmk_app']['base_venv_dir'] }}
     - user: {{ pillar['kmk_app']['posix_user'] }}
@@ -15,7 +15,7 @@ venv-setup:
     - name: {{ pillar['kmk_app']['base_venv_dir'] }}
     - user: {{ pillar['kmk_app']['posix_user'] }}
     - require:
-        - file: venv-directory
+        - file: venv-dir
 
 kmk-flaskapp-git-clone:
   git.latest:

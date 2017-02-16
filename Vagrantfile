@@ -16,8 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
   config.ssh.username = "vagrant"
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
-  config.vm.box = "centos/7"
-  # config.vm.box = "edrw/centos7-64"
+  # config.vm.box = "centos/7"
+  config.vm.box = "twistedbytes/centos-7"
   config.landrush.enabled = true
   config.vm.hostname = $vb_dns_name
   config.landrush.tld = $vb_tld
@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # For masterless salt-stack, mount your salt file root
   config.vm.synced_folder "salt/roots/", "/srv/salt/", nfs: true, mount_options: $nfs_mount_options
+  # config.vm.synced_folder "salt/roots/", "/srv/salt/"
 
   # Define masterless salt-stack provisioning
   config.vm.provision :salt do |salt|
