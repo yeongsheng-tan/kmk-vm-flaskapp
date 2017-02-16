@@ -42,6 +42,8 @@ python2-build-deps:
         - gcc
         - python-devel
         - python2-pip
+        - uwsgi
+        - uwsgi-plugin-python
     - require:
         - pkg: yum-plugin-versionlock
     - require_in:
