@@ -22,3 +22,4 @@ kmk_app:
   uwsgi_chmod_socket: 660
   uwsgi_is_die_on_term: true
   uwsgi_is_vacuum: true
+  uwsgi_kmk_log_dir: "/var/log/kmk/%n.log"

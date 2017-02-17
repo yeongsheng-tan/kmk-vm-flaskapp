@@ -24,3 +24,10 @@ nginx:
     - source: salt://nginx/templates/nginx.conf
     - require_in:
         - service: nginx
+
+nginx-logrotate:
+  file.managed:
+    - name:   /etc/logrotate.d/nginx
+    - source: salt://nginx/templates/logrotate.conf
+    - template: jinja
+    - defaults: {{ pillar['nginx'] }}

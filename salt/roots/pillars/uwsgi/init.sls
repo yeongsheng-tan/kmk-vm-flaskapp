@@ -1,6 +1,7 @@
 uwsgi:
   systemd_unit_file: /etc/systemd/system/kmk-uwsgi.service
   multi_user_system_service_file: /etc/systemd/system/multi-user.target.wants/kmk-uwsgi.service
+  log_dir: /var/log/kmk
   uid: kmk
   gid: nginx
   app_root: /webapps/kmk

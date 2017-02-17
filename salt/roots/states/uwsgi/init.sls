@@ -19,17 +19,6 @@ uwsgi-ini:
     - require_in:
         - service: kmk-uwsgi
 
-# /run/kmk:
-#   file.directory:
-#     - user: {{ pillar['kmk_app']['posix_user'] }}
-#     - group: {{ pillar['nginx']['posix_group'] }}
-#     - makedirs: True
-#     - recurse:
-#         - user
-#         - group
-#     - require:
-#        - pkg: nginx
-
 /etc/systemd/system/kmk-uwsgi.service:
   file.managed:
     - source: salt://uwsgi/templates/kmk-uwsgi.service
@@ -41,6 +30,21 @@ uwsgi-ini:
     - target: /etc/systemd/system/kmk-uwsgi.service
     - require_in:
         - service: kmk-uwsgi
+
+kmk-uwsgi-log-dir:
+  file.directory:
+    - name: {{ pillar['uwsgi']['log_dir'] }}
+    - user: {{ pillar['kmk_app']['posix_user'] }}
+    - group: {{ pillar['nginx']['posix_group'] }}
+    - require_in:
+        - service: kmk-uwsgi
+
+kmk-uwsgi-logrotate:
+  file.managed:
+    - name:   /etc/logrotate.d/kmk-uwsgi
+    - source: salt://uwsgi/templates/logrotate.conf
+    - template: jinja
+    - defaults: {{ pillar['uwsgi']['log_dir'] }}
 
 kmk-uwsgi:
   service.running:
