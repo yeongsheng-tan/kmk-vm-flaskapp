@@ -4,15 +4,7 @@ yum-update-all:
     - cwd: /
     - require_in:
         - user: kmk-app-posix-user
-        # - pkg: yum-plugin-versionlock
 
-# yum-plugin-versionlock:
-#   pkg.installed:
-#     - normalize: True
-#     - refresh: True
-#     - skip_verify: True
-#     - skip_suggestions: True
-          
 kmk-app-posix-user:
   user.present:
     - name: {{ pillar['kmk_app']['posix_user'] }}
@@ -44,8 +36,6 @@ python2-build-deps:
         - python2-pip
     - require_in:
         - pip: virtualenvwrapper
-    # - require:
-    #     - pkg: yum-plugin-versionlock
 
 virtualenvwrapper:
   pip.installed:

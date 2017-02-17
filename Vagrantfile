@@ -9,7 +9,7 @@ $vb_cpuexecutioncap = 100 # allow VM full CPU execution cap
 $vb_private_network_ip = "10.10.10.20"
 $vb_dns_name = "devops.kmklabs.dev"
 $vb_tld = "kmklabs.dev"
-$forwarded_ports = {"80"
+$forwarded_ports = {"80": 80}
 $nfs_mount_options = ["nolock,vers=3,udp,noatime,actimeo=1"]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

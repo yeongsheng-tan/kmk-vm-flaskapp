@@ -48,5 +48,3 @@ kmk-uwsgi-logrotate:
 
 kmk-uwsgi:
   service.running: []
-    # - require_in:
-    #     - service: nginx
