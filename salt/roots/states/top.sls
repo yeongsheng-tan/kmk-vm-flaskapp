@@ -6,3 +6,4 @@ base:
     - flaskapp
     - uwsgi
     - nginx
+    - sanitise

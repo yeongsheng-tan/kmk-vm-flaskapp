@@ -1,3 +1,3 @@
-Asia/Singapore:
+UTC:
   timezone.system:
     - utc: True
