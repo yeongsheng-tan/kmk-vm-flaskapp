@@ -36,17 +36,17 @@ kmk-uwsgi-log-dir:
     - name: {{ pillar['uwsgi']['log_dir'] }}
     - user: {{ pillar['kmk_app']['posix_user'] }}
     - group: {{ pillar['nginx']['posix_group'] }}
-    - require_in:
-        - service: kmk-uwsgi
+    - require:
+        - pkg: nginx
 
 kmk-uwsgi-logrotate:
   file.managed:
     - name:   /etc/logrotate.d/kmk-uwsgi
     - source: salt://uwsgi/templates/logrotate.conf
     - template: jinja
-    - defaults: {{ pillar['uwsgi']['log_dir'] }}
+    - defaults: {{ pillar['uwsgi'] }}
 
 kmk-uwsgi:
-  service.running:
-    - require_in:
-        - service: nginx
+  service.running: []
+    # - require_in:
+    #     - service: nginx
