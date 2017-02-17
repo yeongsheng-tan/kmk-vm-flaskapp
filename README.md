@@ -1,5 +1,6 @@
 # kmk-vm-flaskapp
 Vagrant CentOS 7 (SELinux disabled) virtualbox, salt-stack provisioned, for nginx uwsgi flask python app
+### Github repo: https://github.com/yeongsheng-tan/kmk-vm-flaskapp
 
 ## Ensure vagrant-landrush plugin is installed
 1. `vagrant plugin install landrush`
