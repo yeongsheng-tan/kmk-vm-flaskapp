@@ -17,7 +17,13 @@ nginx:
   file.managed:
     - source: salt://nginx/templates/nginx.service
     - require_in:
-        - service: nginx
+        - file: /etc/systemd/system/multi-user.target.wants/nginx.service
+
+/etc/systemd/system/multi-user.target.wants/nginx.service:
+  file.symlink:
+    - target: /usr/lib/systemd/system/nginx.service
+    - require_in:
+      - service: nginx
 
 /etc/nginx/nginx.conf:
   file.managed:
