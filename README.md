@@ -22,3 +22,7 @@ Vagrant CentOS 7 (SELinux disabled) virtualbox, salt-stack provisioned, for ngin
 * nginx access and error logs are written to /var/log/nginx/access.log and /var/log/nginx/error.log and is logrotated daily (with 30 backlog gzipped copies)
 * Guest OS packages are updated to the latest on initial vagrant up before any salt states are activated
 * .git directory and .gitignore file is sanitised post git clone from https://github.com/KMK-ONLINE/devops-coding-challenge.git
+
+## Test Check
+1. Enter URL 'http://10.10.10.20' in your Chrome Browser, OR
+2. `curl 10.10.10.20`

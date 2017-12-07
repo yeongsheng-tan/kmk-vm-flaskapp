@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version("= 1.8.1")
+Vagrant.require_version("= 2.0.1")
 VAGRANTFILE_API_VERSION = "2"
 $vm_memory = 1024 # Setup to have VM with 1GB memory
 $vm_cpus = `#{RbConfig::CONFIG['host_os'] =~ /darwin/ ? 'sysctl -n hw.ncpu' : 'nproc'}`.chomp # setup to use ALL available CPUs
@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |vb|
     # Tell Vagrant that it need not check VBox Guest Addtions is installed.
     # We just use nfs for host<->guest file sync.
-    vb.check_guest_additions = false
+    vb.check_guest_additions = true
     vb.functional_vboxsf     = false
 
     # Customize the amount of memory on the VM
