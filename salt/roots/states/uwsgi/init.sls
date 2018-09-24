@@ -1,7 +1,6 @@
 uwsgi:
   pip.installed:
     - user: {{ pillar['kmk_app']['posix_user'] }}
-    - use_wheel: True
     - upgrade: True
     - bin_env: {{ pillar['kmk_app']['base_venv_dir'] }}
     - require_in:
@@ -9,7 +8,7 @@ uwsgi:
 
 uwsgi-ini:
   file.managed:
-    - name: {{ pillar['uwsgi']['ini_file'] }} 
+    - name: {{ pillar['uwsgi']['ini_file'] }}
     - user: {{ pillar['kmk_app']['posix_user'] }}
     - group: {{ pillar['kmk_app']['posix_group'] }}
     - mode: 644

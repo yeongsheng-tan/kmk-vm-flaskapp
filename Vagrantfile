@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version("= 2.0.1")
+Vagrant.require_version("= 2.1.5")
 VAGRANTFILE_API_VERSION = "2"
 $vm_memory = 1024 # Setup to have VM with 1GB memory
 $vm_cpus = `#{RbConfig::CONFIG['host_os'] =~ /darwin/ ? 'sysctl -n hw.ncpu' : 'nproc'}`.chomp # setup to use ALL available CPUs
@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
   config.ssh.username = "vagrant"
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
-  config.vm.box = "twistedbytes/centos-7"
+  config.vm.box = "generic/centos7"
   config.landrush.enabled = true
   config.vm.hostname = $vb_dns_name
   config.landrush.tld = $vb_tld

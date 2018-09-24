@@ -2,10 +2,13 @@
 Vagrant CentOS 7 (SELinux disabled) virtualbox, salt-stack provisioned, for nginx uwsgi flask python app
 #### Github repo: https://github.com/yeongsheng-tan/kmk-vm-flaskapp
 
-## Ensure vagrant-landrush plugin is installed
+## Developed and tested against macOS 10.13 with vagrant 2.1.5 and virtualbox 5.2.18 with ruby-2.5.1
+## Ensure vagrant plugins are installed
 1. `vagrant plugin install landrush`
+2. `vagrant plugin install vagrant-reload`
+3. `vagrant plugin install vagrant-vbguest`
 
-* Used as a mini-dns server to host dns entry devops.kmklabs.dev to IP 10.10.10.20 
+* Used as a mini-dns server to host dns entry devops.kmklabs.dev to IP 10.10.10.20
 
 ## Up and running
 1. `vagrant up`
